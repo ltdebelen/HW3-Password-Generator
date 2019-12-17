@@ -1,5 +1,6 @@
 // DOM Elements
 const btnGeneratePW = document.getElementById("generate");
+const btnCopyPW = document.getElementById("copy");
 const passwordEl = document.getElementById("password");
 
 const randomFunc = {
@@ -28,10 +29,9 @@ btnGeneratePW.addEventListener("click", () => {
   );
 });
 
+// Generate password function
 function generatePassword(length, symbol, number, lowercase, uppercase) {
   let parsedLength = parseInt(length);
-
-  console.log(parsedLength, symbol, number, lowercase, uppercase);
   let generatedPassword = "";
   const typesCount = lowercase + uppercase + number + symbol;
 
@@ -59,6 +59,23 @@ function generatePassword(length, symbol, number, lowercase, uppercase) {
 
   return finalPassword;
 }
+
+// Copy password to clipboard
+btnCopyPW.addEventListener("click", () => {
+  const textarea = document.createElement("textarea");
+  const password = passwordEl.value;
+
+  if (!password) {
+    return;
+  }
+
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+  alert("Password copied to clipboard!");
+});
 
 // Functions
 function getRandomSymbol() {
