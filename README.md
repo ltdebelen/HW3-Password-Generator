@@ -29,5 +29,5 @@ The user will be prompted to choose from the following password criteria:
 ## Technologies Used
 HTML, CSS, JavaScript, Skeleton CSS Boilerplate
 
-## GitHub Link
+## GitHub Hosted Link
 https://ltdebelen.github.io/HW3-Password-Generator/
